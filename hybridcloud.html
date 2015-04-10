@@ -14,6 +14,43 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
+		<script>
+		    var revealroot = "reveal.js-3.0.0/";
+            function endsWith(str, suffix) {
+                return str.indexOf(suffix, str.length - suffix.length) !== -1;
+            }
+
+            function addLink(path) {
+                if (endsWith(path, ".js")) {
+                    var script = document.createElement( 'script' );
+                    script.src = revealroot + path;
+                    script.type = 'text/javascript';
+                    document.getElementsByTagName( 'head' )[0].appendChild( script );
+                } else if (endsWith(path, ".css")) {
+                    var link = document.createElement( 'link' );
+                    link.rel = 'stylesheet';
+                    link.type = 'text/css';
+                    link.href = revealroot + path;
+                    document.getElementsByTagName( 'head' )[0].appendChild( link );
+                }
+                console.log("added: " + path);
+            }
+
+            var config = [
+                "css/reveal.css",
+                "css/theme/black.css",
+                "lib/css/zenburn.css",
+                "lib/js/head.min.js",
+                "js/reveal.js"
+            ];
+            if (window.location.search.match( /print-pdf/gi )) {
+                config.push('css/print/pdf.css')
+            } else {
+                config.push('css/print/paper.css')
+            }
+
+            config.forEach(addLink);
+		</script>
 
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
@@ -425,43 +462,6 @@ Reveal.addEventListener( 'customevent', function() {
 
 		</div>
 
-		<script>
-		    var revealroot = "reveal.js-3.0.0/";
-            function endsWith(str, suffix) {
-                return str.indexOf(suffix, str.length - suffix.length) !== -1;
-            }
-
-            function addLink(path) {
-                if (endsWith(path, ".js")) {
-                    var script = document.createElement( 'script' );
-                    script.src = revealroot + path;
-                    script.type = 'text/javascript';
-                    document.getElementsByTagName( 'body' )[0].appendChild( script );
-                } else if (endsWith(path, ".css")) {
-                    var link = document.createElement( 'link' );
-                    link.rel = 'stylesheet';
-                    link.type = 'text/css';
-                    link.href = revealroot + path;
-                    document.getElementsByTagName( 'head' )[0].appendChild( link );
-                }
-                console.log("added: " + path);
-            }
-
-            var config = [
-                "css/reveal.css",
-                "css/theme/black.css",
-                "lib/css/zenburn.css",
-                "lib/js/head.min.js",
-                "js/reveal.js"
-            ];
-            if (window.location.search.match( /print-pdf/gi )) {
-                config.push('css/print/pdf.css')
-            } else {
-                config.push('css/print/paper.css')
-            }
-
-            config.forEach(addLink);
-		</script>
 
 		<script>
 			// Full list of configuration options available at:
