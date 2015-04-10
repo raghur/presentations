@@ -434,7 +434,7 @@ Reveal.addEventListener( 'customevent', function() {
             function addLink(path) {
                 if (endsWith(path, ".js")) {
                     var script = document.createElement( 'script' );
-                    script.src = revealroot + "lib/js/head.min.js";
+                    script.src = revealroot + path;
                     script.type = 'javascript';
                     document.getElementsByTagName( 'body' )[0].appendChild( script );
                 } else if (endsWith(path, ".css")) {
@@ -444,6 +444,7 @@ Reveal.addEventListener( 'customevent', function() {
                     link.href = revealroot + path;
                     document.getElementsByTagName( 'head' )[0].appendChild( link );
                 }
+                console.log("added: " + path);
             }
 
             var config = [
