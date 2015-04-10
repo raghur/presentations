@@ -14,20 +14,6 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
-
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
-
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
 
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
@@ -439,11 +425,41 @@ Reveal.addEventListener( 'customevent', function() {
 
 		</div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
-
 		<script>
+		    var revealroot = "reveal.js-3.0.0/";
+            function endsWith(str, suffix) {
+                return str.indexOf(suffix, str.length - suffix.length) !== -1;
+            }
 
+            function addLink(path) {
+                if (endsWith(path, ".js")) {
+                    var script = document.createElement( 'script' );
+                    script.src = revealroot + "lib/js/head.min.js";
+                    script.type = 'javascript';
+                    document.getElementsByTagName( 'body' )[0].appendChild( script );
+                } else if (endsWith(path, ".css")) {
+                    var link = document.createElement( 'link' );
+                    link.rel = 'stylesheet';
+                    link.type = 'text/css';
+                    link.href = revealroot + path;
+                    document.getElementsByTagName( 'head' )[0].appendChild( link );
+                }
+            }
+
+            var config = [
+                "css/reveal.css",
+                "css/theme/black.css",
+                "lib/css/zenburn.css",
+                "lib/js/head.min.js",
+                "js/reveal.js"
+            ];
+            if (window.location.search.match( /print-pdf/gi )) {
+                config.push('css/print/pdf.css')
+            } else {
+                config.push('css/print/paper.css')
+            }
+
+            config.forEach(addLink);
 			// Full list of configuration options available at:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
@@ -457,12 +473,12 @@ Reveal.addEventListener( 'customevent', function() {
 
 				// Optional reveal.js plugins
 				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
+					{ src: revealroot + 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: revealroot + 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: revealroot + 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: revealroot + 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: revealroot + 'plugin/zoom-js/zoom.js', async: true },
+					{ src: revealroot + 'plugin/notes/notes.js', async: true }
 				]
 			});
 
