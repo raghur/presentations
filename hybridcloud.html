@@ -435,7 +435,7 @@ Reveal.addEventListener( 'customevent', function() {
                 if (endsWith(path, ".js")) {
                     var script = document.createElement( 'script' );
                     script.src = revealroot + path;
-                    script.type = 'javascript';
+                    script.type = 'text/javascript';
                     document.getElementsByTagName( 'body' )[0].appendChild( script );
                 } else if (endsWith(path, ".css")) {
                     var link = document.createElement( 'link' );
