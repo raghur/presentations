@@ -116,10 +116,6 @@ and community cloud services, from different service providers&rdquo;
 The best elements the public and private clouds
 combined in one <span class="fragment highlight-blue">seamless</span> package of elastic compute and storage
 
-3. Regulatory and/or compliance requirements
-2. Control
-5. Efficiency
-1. Cost
 
 <h4 class="fragment"> Hybrid cloud environments are here today. Hybrid cloud isn't.
 
@@ -147,9 +143,12 @@ combined in one <span class="fragment highlight-blue">seamless</span> package of
     - <small>Back-end analytics requiring large compute with bursty pattern can go in the public cloud</small>
 
 <aside class="notes" data-markdown>
+
 - Utilize public cloud for holiday workloads.
 - DR: what if the public cloud fails
 - Want to run a 100 node hadoop cluster for 12  hours each day
+
+Segue: Why don't we just use it?
 </aside>
                     </script>
                 </section>
@@ -187,7 +186,7 @@ Segue: So where are we with Hybrid clouds.
         - Few large players,
         - Move for standardization
 
-Segue: Hybrid clouds -  today's challenges
+Segue: HC -  what does it take to set one up today
 </aside>
                         </script>
                     </section>
@@ -198,7 +197,7 @@ Segue: Hybrid clouds -  today's challenges
 
 1. Complexity<!--.element: class="fragment"-->
 1. Migration/Reimplementation<!--.element: class="fragment"-->
-4. Vendor selection<!--.element: class="fragment"-->
+4. Skills<!--.element: class="fragment"-->
 2. Cost <!--.element: class="fragment"-->
 
 <aside class="notes" data-markdown>
@@ -207,11 +206,11 @@ Segue: Hybrid clouds -  today's challenges
     - selection
 - Migration 
     - existing apps 
-    - Platform lock in?
     - Orchestration retooling 
-- Vendor selction
 - Cost
     - Setup, Operation, People, Migration
+
+Segue: a hybrid cloud may make sense down the road. What can you do now?
 </aside>
                     </script>
                 </section>
@@ -262,14 +261,16 @@ Segue: It's all about being prepared.
                         ## Prepare
 
 1. Treat the public cloud as infrastructure
-    - Don't trade-in speed
+    - Use PaaS smartly
 1. Automate infrastructure
 1. Treat your private cloud like a  public cloud
 
 <aside class="notes" data-markdown>
 1. Use PaaS wisely
-1. Orchestration with ansible, salt, puppet etc.
-1. Move from a virtualization  to cloud mindset internally
+    - Don't trade-in speed
+1. Build skills
+1. virtualization  to cloud mindset 
+1. Build apps so that they can run on any cloud.
 </aside>
                     </script>
                 </section>
