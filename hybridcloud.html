@@ -13,45 +13,28 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.load.min.js"></script>
 
         <script>
             var revealroot = "reveal.js-3.0.0/";
-            function endsWith(str, suffix) {
-                return str.indexOf(suffix, str.length - suffix.length) !== -1;
+            var config = {
+                css : [
+                    revealroot + "css/reveal.css",
+                    revealroot + "css/theme/black.css",
+                    revealroot + "lib/css/zenburn.css"
+                ],
+                js: [
+                    revealroot + "lib/js/head.min.js",
+                    revealroot + "js/reveal.js"
+                ]
+            };
+            if (window.location.search.match( /print-pdf/gi )) {
+                config.css.push( revealroot + 'css/print/pdf.css')
+            } else {
+                config.css.push( revealroot + 'css/print/paper.css')
             }
 
-function addLink(path) {
-    if (endsWith(path, ".js")) {
-        var script = document.createElement( 'script' );
-        script.src = revealroot + path;
-        script.type = 'text/javascript';
-        document.getElementsByTagName( 'head' )[0].appendChild( script );
-    } else if (endsWith(path, ".css")) {
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = revealroot + path;
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-    }
-    console.log("added: " + path);
-}
-
-var config = [
-    "css/reveal.css",
-    "css/theme/black.css",
-    "lib/css/zenburn.css",
-    "lib/js/head.min.js",
-    "js/reveal.js"
-];
-if (window.location.search.match( /print-pdf/gi )) {
-    config.push('css/print/pdf.css')
-} else {
-    config.push('css/print/paper.css')
-}
-
-config.forEach(addLink);
-alert("loaded");
-
+            head.load(config.css);
         </script>
 
         <!--[if lt IE 9]>
@@ -515,24 +498,26 @@ Reveal.addEventListener( 'customevent', function() {
         <script>
             // Full list of configuration options available at:
             // https://github.com/hakimel/reveal.js#configuration
-            Reveal.initialize({
-                controls: true,
-                progress: true,
-                history: true,
-                center: true,
-                slideNumber: true,
+            head.load(config.js, function() {
+                Reveal.initialize({
+                    controls: true,
+                    progress: true,
+                    history: true,
+                    center: true,
+                    slideNumber: true,
 
-                transition: 'slide', // none/fade/slide/convex/concave/zoom
+                    transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-                // Optional reveal.js plugins
-                dependencies: [
-                { src: revealroot + 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-                { src: revealroot + 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                { src: revealroot + 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                { src: revealroot + 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-                { src: revealroot + 'plugin/zoom-js/zoom.js', async: true },
-                { src: revealroot + 'plugin/notes/notes.js', async: true }
-                ]
+                    // Optional reveal.js plugins
+                    dependencies: [
+                    { src: revealroot + 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: revealroot + 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: revealroot + 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: revealroot + 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: revealroot + 'plugin/zoom-js/zoom.js', async: true },
+                    { src: revealroot + 'plugin/notes/notes.js', async: true }
+                    ]
+                });
             });
 
         </script>
