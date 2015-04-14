@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="some interesting title">
+    <meta name="author" content="Raghu Rajagopalan">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.load.min.js"></script>
+    <title>Page title</title>
+    <script>
+        var revealroot = "reveal.js-3.0.0/";
+        var config = {
+            css : [
+                revealroot + "css/reveal.css",
+                revealroot + "css/theme/black.css",
+                revealroot + "lib/css/zenburn.css"
+            ],
+            js: [
+                revealroot + "lib/js/head.min.js",
+                revealroot + "js/reveal.js"
+            ]
+        };
+        if (window.location.search.match( /print-pdf/gi )) {
+            config.css.push( revealroot + 'css/print/pdf.css')
+        } else {
+            config.css.push( revealroot + 'css/print/paper.css')
+        }
+
+        head.load(config.css);
+    </script>
+    <!--[if lt IE 9]>
+        <script src="reveal.js-3.0.0/lib/js/html5shiv.js"></script>
+        <![endif]-->
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section data-markdown>
+                <script type="text/template">
+# Welcome
+
+### Some pithy subtitle
+<aside data-markdown class="notes"></aside>
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+## Second slide
+
+- line 1 <!-- .element: class="fragment" -->
+- line 2 <!-- .element: class="fragment" -->
+<aside data-markdown class="notes">
+                    - use markdown here
+                    </aside>
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+## Third
+
+- line 1 <!-- .element: class="fragment highlight-blue" -->
+- line 2 <!-- .element: class="fragment" -->
+<aside data-markdown class="notes"></aside>
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+## All empty and lonely
+<aside data-markdown class="notes"></aside>
+                </script>
+            </section>
+<section data-markdown>
+                <script type="text/template">
+## All empty and lonely
+<aside data-markdown class="notes"></aside>
+                </script>
+            </section>
+        </div>
+    </div>
+<script>
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            head.load(config.js, function() {
+                Reveal.initialize({
+                    controls: true,
+                    progress: true,
+                    history: true,
+                    center: true,
+                    slideNumber: true,
+
+                    transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                    // Optional reveal.js plugins
+                    dependencies: [
+                    { src: revealroot + 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: revealroot + 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: revealroot + 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: revealroot + 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: revealroot + 'plugin/zoom-js/zoom.js', async: true },
+                    { src: revealroot + 'plugin/notes/notes.js', async: true }
+                    ]
+                });
+            });
+
+        </script>
+</body>
+</html>
