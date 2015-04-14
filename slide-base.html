@@ -53,9 +53,10 @@
 
 - line 1 <!-- .element: class="fragment" -->
 - line 2 <!-- .element: class="fragment" -->
+
 <aside data-markdown class="notes">
-                    - use markdown here
-                    </aside>
+- use markdown here
+</aside>
                 </script>
             </section>
             <section data-markdown>
@@ -63,13 +64,36 @@
 ## Third
 
 - line 1 <!-- .element: class="fragment highlight-blue" -->
-- line 2 <!-- .element: class="fragment" -->
+- line 2 <!-- .element: class="fragment highlight-red" -->
+- line 3 <!-- .element: class="fragment" -->
 <aside data-markdown class="notes"></aside>
                 </script>
             </section>
             <section data-markdown>
                 <script type="text/template">
-## All empty and lonely
+## Code highlighting
+
+```javascript
+function something() {
+    "use strict";
+    var self = {};
+
+    function private() {
+        console.log("this is private");
+    }
+
+    function speak(arg) {
+        console.log("this is public")
+    }
+
+    return {
+        willSpeak: speak
+    }
+}
+
+
+```
+
 <aside data-markdown class="notes"></aside>
                 </script>
             </section>
@@ -99,7 +123,7 @@
                     { src: revealroot + 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
                     { src: revealroot + 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                     { src: revealroot + 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: revealroot + 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: revealroot + 'plugin/highlight/highlight.js', async: true, condition: function() { return true; }, callback: function() { hljs.initHighlightingOnLoad(); } },
                     { src: revealroot + 'plugin/zoom-js/zoom.js', async: true },
                     { src: revealroot + 'plugin/notes/notes.js', async: true }
                     ]
