@@ -321,7 +321,7 @@ Hybrid cloud environments are a reality today; Hybrid clouds are on the horizon
                     { src: revealroot + 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
                     { src: revealroot + 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                     { src: revealroot + 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: revealroot + 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: revealroot + 'plugin/highlight/highlight.js', async: true, condition: function() { return true; }, callback: function() { hljs.initHighlightingOnLoad(); } },
                     { src: revealroot + 'plugin/zoom-js/zoom.js', async: true },
                     { src: revealroot + 'plugin/notes/notes.js', async: true }
                     ]
